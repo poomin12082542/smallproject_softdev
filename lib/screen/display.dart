@@ -67,20 +67,12 @@ class _DisplayScreenState extends State<DisplayScreen> {
                                           child: Text("Yes"),
                                           onPressed: () {
 
-                                            Navigator.pushReplacement(context,
-                                                MaterialPageRoute(
-                                                    builder: (context) {
-                                              return MyHomePage(title: '',);
-                                            }));
+                                            Navigator.pop(context);
                                           }),
                                       RaisedButton(
                                           child: Text("No"),
                                           onPressed: () {
-                                            Navigator.pushReplacement(context,
-                                                MaterialPageRoute(
-                                                    builder: (context) {
-                                              return MyHomePage(title: '',);
-                                            }));
+                                            Navigator.pop(context);
                                           })
                                     ],
                                   ),

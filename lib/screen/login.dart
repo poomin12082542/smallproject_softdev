@@ -40,10 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
         IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) {
-                  return HomeScreen();
-                }));
+                Navigator.pop(context);
             })
       ]),
               body: Container(
