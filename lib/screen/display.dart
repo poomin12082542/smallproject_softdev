@@ -2,12 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'homepage.dart';
 
 class DisplayScreen extends StatefulWidget {
   @override
   _DisplayScreenState createState() => _DisplayScreenState();
 }
+
 final auth = FirebaseAuth.instance;
+
 class _DisplayScreenState extends State<DisplayScreen> {
   @override
   Widget build(BuildContext context) {
@@ -43,7 +46,49 @@ class _DisplayScreenState extends State<DisplayScreen> {
                       ),
                     ),
                     title: Text(document["fname"]),
-                    subtitle: Text("email:"+document["email"]+"  "+"tel:"+document["tel"]),
+                    subtitle: Text("email:" +
+                        document["email"] +
+                        "  " +
+                        "tel:" +
+                        document["tel"]),
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              scrollable: true,
+                              title: Text('Delete friend'),
+                              content: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Form(
+                                  child: Row(
+                                    children: <Widget>[
+                                      RaisedButton(
+                                          child: Text("Yes"),
+                                          onPressed: () {
+
+                                            Navigator.pushReplacement(context,
+                                                MaterialPageRoute(
+                                                    builder: (context) {
+                                              return MyHomePage(title: '',);
+                                            }));
+                                          }),
+                                      RaisedButton(
+                                          child: Text("No"),
+                                          onPressed: () {
+                                            Navigator.pushReplacement(context,
+                                                MaterialPageRoute(
+                                                    builder: (context) {
+                                              return MyHomePage(title: '',);
+                                            }));
+                                          })
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          });
+                    },
                   ),
                 );
               }).toList(),
@@ -53,4 +98,8 @@ class _DisplayScreenState extends State<DisplayScreen> {
       ),
     );
   }
+}
+
+class FireBaseFirestore {
+  static var instance;
 }

@@ -25,15 +25,16 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Scaffold(
           body: TabBarView(
             children: [
-              FormScreen(),
-              DisplayScreen()
+              DisplayScreen(),  
+              FormScreen()
             ],
             ),
             backgroundColor: Colors.grey,
             bottomNavigationBar: TabBar(
               tabs: [
-                Tab(text: "Add Friends",),
-                Tab(text: "Your Friends",)
+                Tab(text: "Your Friends",),
+                Tab(text: "Add Friends",)
+                
               ],
               ),
         ),
