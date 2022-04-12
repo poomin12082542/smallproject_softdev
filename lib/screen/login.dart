@@ -36,8 +36,16 @@ class _LoginScreenState extends State<LoginScreen> {
           if (snapshot.connectionState == ConnectionState.done) {
             return Scaffold(
               appBar: AppBar(
-                title: Text("LOG IN"),
-              ),
+                title: Text("LOG IN"),actions: [
+        IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) {
+                  return HomeScreen();
+                }));
+            })
+      ]),
               body: Container(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),

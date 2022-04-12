@@ -34,8 +34,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
           if (snapshot.connectionState == ConnectionState.done) {
             return Scaffold(
               appBar: AppBar(
-                title: Text("SIGN IN"),
-              ),
+                title: Text("SIGN IN"),actions: [
+        IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) {
+                  return HomeScreen();
+                }));
+            })
+      ]),
               body: Container(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
